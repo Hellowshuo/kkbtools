@@ -47,8 +47,8 @@ class OssUpload:
         bucket = oss2.Bucket(auth, self.endpoint, self.bucket_name)
         # 填写Object完整路径和本地文件的完整路径。Object完整路径中不能包含Bucket名称。
         # 如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件。
-        # file_abspath = os.path.abspath(filename)
-        object_name = 'etg/' + file_path
+        # file_path 
+        object_name = 'etg/' + os.path.basename(file_path)
         with open(file_path, 'rb') as fileobj:
             # Seek方法用于指定从第1000个字节位置开始读写。上传时会从您指定的第1000个字节位置开始上传，直到文件结束。
             # fileobj.seek(1000, os.SEEK_SET)
